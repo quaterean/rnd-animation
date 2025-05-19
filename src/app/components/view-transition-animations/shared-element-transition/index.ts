@@ -1,0 +1,1 @@
+export { SharedElementTransition } from './SharedElementTransition';
