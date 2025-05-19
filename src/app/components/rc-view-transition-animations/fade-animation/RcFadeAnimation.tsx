@@ -19,13 +19,11 @@ export const RcFadeAnimation: React.FC = () => {
         {visible ? "Скрыть карточку" : "Показать карточку"}
       </Button>
 
-      {visible && (
-        <RcViewTransition enter="fade-in" exit="fade-out">
-          <Card title="Информация" style={{ marginTop: 16 }}>
-            Этот компонент плавно появляется и исчезает
-          </Card>
-        </RcViewTransition>
-      )}
+      <RcViewTransition enter="fade-in" exit="fade-out" visible={visible}>
+        <Card title="Информация" style={{ marginTop: 16 }}>
+          Этот компонент плавно появляется и исчезает
+        </Card>
+      </RcViewTransition>
     </>
   );
 };

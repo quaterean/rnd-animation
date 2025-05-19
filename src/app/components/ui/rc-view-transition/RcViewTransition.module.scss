@@ -1,0 +1,45 @@
+$fade-duration-in: 0.3s;
+$fade-duration-out: 0.3s;
+
+@mixin animation-optimization {
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+
+.animationContainer {
+  box-sizing: border-box;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from { 
+    opacity: 1;
+  }
+  to { 
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  @include animation-optimization;
+  animation: fadeIn $fade-duration-in forwards;
+}
+
+.fadeOut {
+  @include animation-optimization;
+  animation: fadeOut $fade-duration-out forwards;
+}
